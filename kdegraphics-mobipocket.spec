@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdegraphics-mobipocket
-Version  : 19.04.0
-Release  : 7
-URL      : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-mobipocket-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-mobipocket-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/kdegraphics-mobipocket-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 8
+URL      : https://download.kde.org/stable/applications/19.04.1/src/kdegraphics-mobipocket-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/kdegraphics-mobipocket-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/kdegraphics-mobipocket-19.04.1.tar.xz.sig
 Summary  : A collection of plugins to handle mobipocket files
 Group    : Development/Tools
 License  : GPL-2.0
@@ -38,6 +38,7 @@ Requires: kdegraphics-mobipocket-lib = %{version}-%{release}
 Requires: kdegraphics-mobipocket-data = %{version}-%{release}
 Provides: kdegraphics-mobipocket-devel = %{version}-%{release}
 Requires: kdegraphics-mobipocket = %{version}-%{release}
+Requires: kdegraphics-mobipocket = %{version}-%{release}
 
 %description dev
 dev components for the kdegraphics-mobipocket package.
@@ -62,14 +63,14 @@ license components for the kdegraphics-mobipocket package.
 
 
 %prep
-%setup -q -n kdegraphics-mobipocket-19.04.0
+%setup -q -n kdegraphics-mobipocket-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557007559
+export SOURCE_DATE_EPOCH=1557439559
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -84,7 +85,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557007559
+export SOURCE_DATE_EPOCH=1557439559
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket
 cp COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket/COPYING
