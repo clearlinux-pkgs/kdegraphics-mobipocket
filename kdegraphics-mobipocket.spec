@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdegraphics-mobipocket
-Version  : 21.08.2
-Release  : 33
-URL      : https://download.kde.org/stable/release-service/21.08.2/src/kdegraphics-mobipocket-21.08.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.08.2/src/kdegraphics-mobipocket-21.08.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.08.2/src/kdegraphics-mobipocket-21.08.2.tar.xz.sig
+Version  : 21.08.3
+Release  : 34
+URL      : https://download.kde.org/stable/release-service/21.08.3/src/kdegraphics-mobipocket-21.08.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.3/src/kdegraphics-mobipocket-21.08.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.3/src/kdegraphics-mobipocket-21.08.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -63,15 +63,15 @@ license components for the kdegraphics-mobipocket package.
 
 
 %prep
-%setup -q -n kdegraphics-mobipocket-21.08.2
-cd %{_builddir}/kdegraphics-mobipocket-21.08.2
+%setup -q -n kdegraphics-mobipocket-21.08.3
+cd %{_builddir}/kdegraphics-mobipocket-21.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1634403603
+export SOURCE_DATE_EPOCH=1636069842
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -87,10 +87,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1634403603
+export SOURCE_DATE_EPOCH=1636069842
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket
-cp %{_builddir}/kdegraphics-mobipocket-21.08.2/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/kdegraphics-mobipocket-21.08.3/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
 pushd clr-build
 %make_install
 popd
