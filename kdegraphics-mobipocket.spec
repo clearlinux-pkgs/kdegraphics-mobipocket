@@ -5,15 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdegraphics-mobipocket
-Version  : 21.12.3
-Release  : 38
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/kdegraphics-mobipocket-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kdegraphics-mobipocket-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kdegraphics-mobipocket-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 39
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/kdegraphics-mobipocket-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kdegraphics-mobipocket-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kdegraphics-mobipocket-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: kdegraphics-mobipocket-data = %{version}-%{release}
 Requires: kdegraphics-mobipocket-lib = %{version}-%{release}
 Requires: kdegraphics-mobipocket-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
@@ -24,19 +23,10 @@ BuildRequires : qtbase-dev mesa-dev
 %description
 No detailed description available
 
-%package data
-Summary: data components for the kdegraphics-mobipocket package.
-Group: Data
-
-%description data
-data components for the kdegraphics-mobipocket package.
-
-
 %package dev
 Summary: dev components for the kdegraphics-mobipocket package.
 Group: Development
 Requires: kdegraphics-mobipocket-lib = %{version}-%{release}
-Requires: kdegraphics-mobipocket-data = %{version}-%{release}
 Provides: kdegraphics-mobipocket-devel = %{version}-%{release}
 Requires: kdegraphics-mobipocket = %{version}-%{release}
 
@@ -47,7 +37,6 @@ dev components for the kdegraphics-mobipocket package.
 %package lib
 Summary: lib components for the kdegraphics-mobipocket package.
 Group: Libraries
-Requires: kdegraphics-mobipocket-data = %{version}-%{release}
 Requires: kdegraphics-mobipocket-license = %{version}-%{release}
 
 %description lib
@@ -63,15 +52,15 @@ license components for the kdegraphics-mobipocket package.
 
 
 %prep
-%setup -q -n kdegraphics-mobipocket-21.12.3
-cd %{_builddir}/kdegraphics-mobipocket-21.12.3
+%setup -q -n kdegraphics-mobipocket-22.04.0
+cd %{_builddir}/kdegraphics-mobipocket-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646542944
+export SOURCE_DATE_EPOCH=1650675331
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -87,21 +76,16 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646542944
+export SOURCE_DATE_EPOCH=1650675331
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket
-cp %{_builddir}/kdegraphics-mobipocket-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
+cp %{_builddir}/kdegraphics-mobipocket-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket/06877624ea5c77efe3b7e39b0f909eda6e25a4ec
 pushd clr-build
 %make_install
 popd
 
 %files
 %defattr(-,root,root,-)
-
-%files data
-%defattr(-,root,root,-)
-/usr/share/kservices5/mobithumbnail.desktop
-/usr/share/metainfo/org.kde.kdegraphics-mobipocket.metainfo.xml
 
 %files dev
 %defattr(-,root,root,-)
@@ -118,7 +102,6 @@ popd
 %defattr(-,root,root,-)
 /usr/lib64/libqmobipocket.so.2
 /usr/lib64/libqmobipocket.so.2.0.0
-/usr/lib64/qt5/plugins/mobithumbnail.so
 
 %files license
 %defattr(0644,root,root,0755)
