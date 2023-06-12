@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdegraphics-mobipocket
-Version  : 23.04.1
-Release  : 54
-URL      : https://download.kde.org/stable/release-service/23.04.1/src/kdegraphics-mobipocket-23.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.1/src/kdegraphics-mobipocket-23.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.1/src/kdegraphics-mobipocket-23.04.1.tar.xz.sig
+Version  : 23.04.2
+Release  : 55
+URL      : https://download.kde.org/stable/release-service/23.04.2/src/kdegraphics-mobipocket-23.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.04.2/src/kdegraphics-mobipocket-23.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.04.2/src/kdegraphics-mobipocket-23.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -56,15 +56,15 @@ license components for the kdegraphics-mobipocket package.
 
 
 %prep
-%setup -q -n kdegraphics-mobipocket-23.04.1
-cd %{_builddir}/kdegraphics-mobipocket-23.04.1
+%setup -q -n kdegraphics-mobipocket-23.04.2
+cd %{_builddir}/kdegraphics-mobipocket-23.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685569482
+export SOURCE_DATE_EPOCH=1686532197
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -97,7 +97,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685569482
+export SOURCE_DATE_EPOCH=1686532197
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket
 cp %{_builddir}/kdegraphics-mobipocket-%{version}/COPYING %{buildroot}/usr/share/package-licenses/kdegraphics-mobipocket/06877624ea5c77efe3b7e39b0f909eda6e25a4ec || :
